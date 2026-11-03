@@ -1,0 +1,16 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Local tooling and test artifacts
+.chrome-profile/
+*.log
+qa-*.js
+qa-*.png
+preview-*.png
+node_modules/
+.env
+.env.*

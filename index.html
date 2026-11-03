@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f8f3">
+  <meta name="description" content="知闻 News Compass — 一个把新闻、AI 前沿与日常灵感装在一起的每日信息站。">
+  <title>知闻 · 你的每日信息站</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preload" href="assets/landscape.svg" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳转到主要内容</a>
+
+  <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-book" viewBox="0 0 24 24">
+      <path d="M4 6.2A2.2 2.2 0 0 1 6.2 4H20v15.2H6.4A2.4 2.4 0 0 0 4 21.6V6.2Z"/>
+      <path d="M4 19.2A2.4 2.4 0 0 1 6.4 16.8H20M8 8h8"/>
+    </symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.5"/>
+      <path d="m14.8 9.2-1.6 4.1-4 1.5 1.6-4.1 4-1.5Z"/>
+      <path d="M12 3.5v1.8M12 18.7v1.8M3.5 12h1.8M18.7 12h1.8"/>
+    </symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24">
+      <path d="M12 3.5c.5 4.5 2 6 6.5 6.5-4.5.5-6 2-6.5 6.5-.5-4.5-2-6-6.5-6.5 4.5-.5 6-2 6.5-6.5Z"/>
+      <path d="M18.5 15.5c.2 1.8.8 2.4 2.5 2.5-1.7.2-2.3.8-2.5 2.5-.2-1.7-.8-2.3-2.5-2.5 1.7-.1 2.3-.7 2.5-2.5Z"/>
+    </symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24">
+      <rect x="5" y="5" width="14" height="16" rx="2.2"/>
+      <path d="M9 5V3.8A1.8 1.8 0 0 1 10.8 2h2.4A1.8 1.8 0 0 1 15 3.8V5M8.5 10h7M8.5 14h7M8.5 18h4"/>
+    </symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24">
+      <path d="m4 10 10-5v14L4 14Z"/>
+      <path d="M4 10H3.5A1.5 1.5 0 0 0 2 11.5v1A1.5 1.5 0 0 0 3.5 14H4M7 14.5V19a1 1 0 0 0 1 1h1.2a1 1 0 0 0 1-1v-3.2M18 9.2c1.2.7 1.9 1.7 1.9 2.8s-.7 2.1-1.9 2.8"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24">
+      <path d="M20.7 5.8a5.2 5.2 0 0 0-7.4 0L12 7.1l-1.3-1.3a5.2 5.2 0 0 0-7.4 7.4L12 21l8.7-7.8a5.2 5.2 0 0 0 0-7.4Z"/>
+    </symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24">
+      <path d="m12 3 9 5-9 5-9-5 9-5Z"/>
+      <path d="m3 12 9 5 9-5M3 16l9 5 9-5"/>
+    </symbol>
+    <symbol id="i-list" viewBox="0 0 24 24">
+      <path d="M9 6h11M9 12h11M9 18h11"/>
+      <circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>
+    </symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24">
+      <rect x="4" y="8" width="16" height="11" rx="3"/>
+      <path d="M12 4v4M8 4h8M8.5 13h.01M15.5 13h.01M9 16h6"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 24 24">
+      <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z"/>
+    </symbol>
+    <symbol id="i-send" viewBox="0 0 24 24">
+      <path d="m21 3-7.2 18-3.2-7.6L3 10.2 21 3Z"/>
+      <path d="m10.6 13.4 4.7-4.7"/>
+    </symbol>
+    <symbol id="i-utensils" viewBox="0 0 24 24">
+      <path d="M6 3v7a2 2 0 0 0 4 0V3M8 10v11M16 3c-1.7 1.3-2.5 3.3-2.5 5.5S14.3 12 16 12s2.5-1.3 2.5-3.5S17.7 4.3 16 3ZM16 12v9"/>
+    </symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24">
+      <path d="M20.5 13.5 13.8 20a2 2 0 0 1-2.8 0L3.5 12.6V3.5h9.1l7.9 7.2a2 2 0 0 1 0 2.8Z"/>
+      <circle cx="8" cy="8" r="1.3"/>
+    </symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24">
+      <path d="m4 20 4.3-1 11-11a2.1 2.1 0 0 0-3-3l-11 11L4 20ZM14.8 6.5l2.7 2.7M4.5 15.5l3 3"/>
+    </symbol>
+    <symbol id="i-newspaper" viewBox="0 0 24 24">
+      <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15a3 3 0 0 1-3 3H6a2 2 0 0 1-2-2V5.5Z"/>
+      <path d="M20 6h1.5A1.5 1.5 0 0 1 23 7.5V18a3 3 0 0 1-3 3M8 7h8M8 10.5h8M8 14h4M8 17h4"/>
+    </symbol>
+    <symbol id="i-archive" viewBox="0 0 24 24">
+      <path d="M3 7h18v4H3zM4 11h16v8.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19.5V11Z"/>
+      <path d="M9 15h6M3 7l1.5-3h15L21 7"/>
+    </symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24">
+      <path d="m6 9 6 6 6-6"/>
+    </symbol>
+    <symbol id="i-search" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="6.3"/>
+      <path d="m16 16 4.5 4.5"/>
+    </symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24">
+      <path d="M4 12h15M13 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24">
+      <path d="M20 12H5M11 6l-6 6 6 6"/>
+    </symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24">
+      <path d="M7 17 17 7M8 7h9v9"/>
+    </symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24">
+      <path d="M20 7v5h-5M4 17v-5h5"/>
+      <path d="M6.1 8.2A7.5 7.5 0 0 1 19.5 12M4.5 12a7.5 7.5 0 0 0 13.4 3.8"/>
+    </symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24">
+      <path d="M6.5 18.5h11a3.8 3.8 0 0 0 .4-7.6 5.8 5.8 0 0 0-11.1-1.4 4.6 4.6 0 0 0-.3 9Z"/>
+    </symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2v2.3M12 19.7V22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2 12h2.3M19.7 12H22M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/>
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24">
+      <path d="m5 5 14 14M19 5 5 19"/>
+    </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24">
+      <path d="M4 7h16M4 12h11M4 17h16"/>
+    </symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24">
+      <rect x="3.5" y="5" width="17" height="16" rx="2.4"/>
+      <path d="M8 3v4M16 3v4M3.5 9.5h17"/>
+      <path d="M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 7v5.4l3.5 2"/>
+    </symbol>
+    <symbol id="i-diamond" viewBox="0 0 24 24">
+      <path d="m12 2.8 2.4 6.8 6.8 2.4-6.8 2.4-2.4 6.8-2.4-6.8L2.8 12l6.8-2.4L12 2.8Z"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="m4.5 12.5 5 5 10-11"/>
+    </symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24">
+      <path d="M9.5 5.5C6.4 7.2 4.8 9.6 4.8 12.8c0 2 .4 3.4 1.2 4.3.8.9 1.8 1.4 3 1.4 1.9 0 3.2-1.4 3.2-3.3 0-1.8-1.2-3.1-2.9-3.1-.4 0-.7 0-1 .2.2-1.6 1.2-2.9 3-4l-1.8-2.8ZM19.9 5.5c-3.1 1.7-4.7 4.1-4.7 7.3 0 2 .4 3.4 1.2 4.3.8.9 1.8 1.4 3 1.4 1.9 0 3.2-1.4 3.2-3.3 0-1.8-1.2-3.1-2.9-3.1-.4 0-.7 0-1 .2.2-1.6 1.2-2.9 3-4l-1.8-2.8Z"/>
+    </symbol>
+    <symbol id="i-device" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="12" rx="2"/>
+      <path d="M8 20h8M12 16v4"/>
+    </symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="16" rx="2.5"/>
+      <path d="m7 9 3 3-3 3M12.5 15H17"/>
+    </symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24">
+      <path d="M19 10c0 5.2-7 11-7 11S5 15.2 5 10a7 7 0 1 1 14 0Z"/>
+      <circle cx="12" cy="10" r="2.5"/>
+    </symbol>
+    <symbol id="i-wind" viewBox="0 0 24 24">
+      <path d="M3 8h10.5A2.5 2.5 0 1 0 11 5.5M3 12h15.5A2.5 2.5 0 1 1 16 14.5M3 16h7.5A2.5 2.5 0 1 1 8 18.5"/>
+    </symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24">
+      <path d="M20.5 3.5C11 3.4 4.2 7 4.2 13.2c0 3.5 2.4 6 5.8 6 6.3 0 10.4-6.4 10.5-15.7Z"/>
+      <path d="M3 21c2.8-5.3 6.7-9.2 12-12"/>
+    </symbol>
+    <symbol id="i-trending" viewBox="0 0 24 24">
+      <path d="M4 5v14h16"/>
+      <path d="m7 14 4-4 3 2.5 5-6"/>
+      <path d="M15 6.5h4v4"/>
+    </symbol>
+    <symbol id="i-coin" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.5"/>
+      <path d="m9 7.5 3 4 3-4M12 11.5V17M9.5 12.5h5M9.5 15h5"/>
+    </symbol>
+    <symbol id="i-fuel" viewBox="0 0 24 24">
+      <path d="M5 21V5.5A2.5 2.5 0 0 1 7.5 3h4A2.5 2.5 0 0 1 14 5.5V21M4 21h11"/>
+      <path d="M7 7h5v5H7zM14 8h2.5L19 11v6.5a1.8 1.8 0 0 0 3 1.3"/>
+    </symbol>
+  </svg>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="侧边栏">
+      <div class="brand-row">
+        <a class="brand" href="#top" aria-label="知闻首页">
+          <img class="brand__mark" src="assets/mark.svg" alt="" width="42" height="42">
+          <span class="brand__type">
+            <span class="brand__name">知闻</span>
+            <span class="brand__sub">NEWS COMPASS</span>
+          </span>
+        </a>
+        <button class="icon-button sidebar-close" type="button" aria-label="关闭导航" data-close-nav>
+          <svg class="icon"><use href="#i-close"/></svg>
+        </button>
+      </div>
+
+      <nav class="side-nav" aria-label="主导航">
+        <section class="nav-group" data-group="reading">
+          <button class="nav-group__toggle" type="button" aria-expanded="true" aria-controls="nav-reading">
+            <svg class="icon nav-group__icon"><use href="#i-book"/></svg>
+            <span>资讯阅读</span>
+            <svg class="icon nav-group__chevron"><use href="#i-chevron"/></svg>
+          </button>
+          <div class="nav-group__list" id="nav-reading">
+            <a class="nav-link is-active" href="#dashboard" data-channel="新闻导航" aria-current="page">
+              <svg class="icon"><use href="#i-compass"/></svg>
+              <span>新闻导航</span>
+            </a>
+            <a class="nav-link" href="#headlines" data-channel="趣闻爆料">
+              <svg class="icon"><use href="#i-leaf"/></svg>
+              <span>趣闻爆料</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="nav-group" data-group="ai">
+          <button class="nav-group__toggle" type="button" aria-expanded="true" aria-controls="nav-ai">
+            <svg class="icon nav-group__icon"><use href="#i-sparkles"/></svg>
+            <span>AI 观察</span>
+            <svg class="icon nav-group__chevron"><use href="#i-chevron"/></svg>
+          </button>
+          <div class="nav-group__list" id="nav-ai">
+            <a class="nav-link" href="#headlines" data-channel="模型榜单">
+              <svg class="icon"><use href="#i-list"/></svg>
+              <span>模型榜单</span>
+            </a>
+            <a class="nav-link" href="#headlines" data-channel="Agent 工具榜">
+              <svg class="icon"><use href="#i-bot"/></svg>
+              <span>Agent 工具榜</span>
+            </a>
+            <a class="nav-link" href="#headlines" data-channel="Skill 榜单">
+              <svg class="icon"><use href="#i-star"/></svg>
+              <span>Skill 榜单</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="nav-group" data-group="life">
+          <button class="nav-group__toggle" type="button" aria-expanded="true" aria-controls="nav-life">
+            <svg class="icon nav-group__icon"><use href="#i-heart"/></svg>
+            <span>生活工具</span>
+            <svg class="icon nav-group__chevron"><use href="#i-chevron"/></svg>
+          </button>
+          <div class="nav-group__list" id="nav-life">
+            <a class="nav-link" href="#headlines" data-channel="今天吃什么">
+              <svg class="icon"><use href="#i-utensils"/></svg>
+              <span>今天吃什么</span>
+            </a>
+            <a class="nav-link" href="#headlines" data-channel="价格参考">
+              <svg class="icon"><use href="#i-tag"/></svg>
+              <span>价格参考</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="nav-group" data-group="finance">
+          <button class="nav-group__toggle" type="button" aria-expanded="true" aria-controls="nav-finance">
+            <svg class="icon nav-group__icon"><use href="#i-trending"/></svg>
+            <span>理财</span>
+            <svg class="icon nav-group__chevron"><use href="#i-chevron"/></svg>
+          </button>
+          <div class="nav-group__list" id="nav-finance">
+            <a class="nav-link" href="#headlines" data-channel="金价">
+              <svg class="icon"><use href="#i-coin"/></svg>
+              <span>金价</span>
+            </a>
+            <a class="nav-link" href="#headlines" data-channel="油价">
+              <svg class="icon"><use href="#i-fuel"/></svg>
+              <span>油价</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="nav-group" data-group="learn">
+          <button class="nav-group__toggle" type="button" aria-expanded="true" aria-controls="nav-learn">
+            <svg class="icon nav-group__icon"><use href="#i-layers"/></svg>
+            <span>学习板块</span>
+            <svg class="icon nav-group__chevron"><use href="#i-chevron"/></svg>
+          </button>
+          <div class="nav-group__list" id="nav-learn">
+            <a class="nav-link" href="#headlines" data-channel="英语学习">
+              <svg class="icon"><use href="#i-book"/></svg>
+              <span>英语学习</span>
+            </a>
+            <a class="nav-link" href="#headlines" data-channel="背单词">
+              <svg class="icon"><use href="#i-pen"/></svg>
+              <span>背单词</span>
+            </a>
+            <a class="nav-link" href="#headlines" data-channel="技术周刊">
+              <svg class="icon"><use href="#i-newspaper"/></svg>
+              <span>技术周刊</span>
+            </a>
+            <a class="nav-link" href="#headlines" data-channel="优秀知识库">
+              <svg class="icon"><use href="#i-archive"/></svg>
+              <span>优秀知识库</span>
+            </a>
+          </div>
+        </section>
+      </nav>
+
+      <footer class="sidebar-footer">
+        <p class="sidebar-footer__title">保持好奇，独立思考</p>
+        <p>让每一次阅读，都有新的发现。</p>
+        <div class="sidebar-footer__meta">
+          <span>知闻导航 / 2026</span>
+          <span class="status-dot" title="站点运行正常"></span>
+        </div>
+      </footer>
+    </aside>
+
+    <div class="sidebar-scrim" data-close-nav hidden></div>
+
+    <div class="main-shell" id="top">
+      <header class="topbar">
+        <div class="topbar__left">
+          <button class="icon-button menu-toggle" type="button" aria-label="打开导航" aria-controls="sidebar" aria-expanded="false" data-open-nav>
+            <svg class="icon"><use href="#i-menu"/></svg>
+          </button>
+          <nav class="breadcrumb" aria-label="面包屑">
+            <a href="#dashboard" id="breadcrumb-home">发现</a>
+            <span class="breadcrumb__slash" aria-hidden="true">/</span>
+            <span class="breadcrumb__current" aria-current="page">全部资讯</span>
+          </nav>
+        </div>
+        <div class="topbar__right">
+          <button class="weather-button" type="button" id="weather-button" aria-expanded="false" aria-controls="weather-popover">
+            <svg class="icon weather-icon"><use href="#i-cloud"/></svg>
+            <span>上海</span>
+            <strong>17°</strong>
+          </button>
+          <button class="lang-button" type="button" id="lang-button" aria-label="切换语言">EN</button>
+
+          <div class="weather-popover" id="weather-popover" hidden>
+            <div class="weather-popover__head">
+              <span class="weather-popover__place">
+                <svg class="icon"><use href="#i-map-pin"/></svg>
+                上海 · 徐汇
+              </span>
+              <span class="weather-popover__badge">实时</span>
+            </div>
+            <div class="weather-popover__main">
+              <div class="weather-popover__temp">17<span>°</span></div>
+              <div class="weather-popover__desc">
+                <strong>多云</strong>
+                <span>体感 16° · 空气优</span>
+              </div>
+              <svg class="icon weather-popover__sun"><use href="#i-sun"/></svg>
+            </div>
+            <div class="weather-popover__foot">
+              <span><svg class="icon"><use href="#i-wind"/></svg> 东北风 2 级</span>
+              <span>适合散步</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <nav class="workspace-tabs" aria-label="工作区页签">
+        <div class="workspace-tabs__inner">
+          <div class="workspace-tabs__track" id="tab-track" role="tablist" aria-label="已打开的页面">
+            <div class="workspace-tab is-active" data-tab-id="home">
+              <button class="workspace-tab__main" type="button" role="tab" aria-selected="true" aria-controls="dashboard-view" tabindex="0" data-tab-activate="home">
+                <svg class="icon workspace-tab__icon"><use href="#i-compass"/></svg>
+                <span class="workspace-tab__label">全部资讯</span>
+              </button>
+            </div>
+          </div>
+          <p class="workspace-tabs__meta"><span id="tab-count">1 个页签</span></p>
+        </div>
+      </nav>
+
+      <main class="main" id="main-content">
+        <div class="view view--dashboard" id="dashboard-view" role="tabpanel" aria-labelledby="tab-home">
+          <section class="hero" aria-labelledby="hero-title">
+          <img class="hero__art" src="assets/landscape.svg" alt="春日山谷、樱花与山间小屋的插画" width="1600" height="480">
+          <div class="hero__wash" aria-hidden="true"></div>
+          <div class="hero__content">
+            <p class="eyebrow eyebrow--hero">
+              <svg class="icon eyebrow__diamond"><use href="#i-diamond"/></svg>
+              新闻 · AI · 每一天
+            </p>
+            <h1 id="hero-title">世界很大，<br><span>从这里开始发现。</span></h1>
+            <p class="hero__desc">新闻、AI 前沿与团队发布，<br>给每天留一扇看见世界的窗。</p>
+            <div class="hero__actions">
+              <a class="hero__start" href="#headlines" aria-label="开始探索今日资讯">
+                <svg class="icon"><use href="#i-arrow-right"/></svg>
+              </a>
+              <button class="text-link" type="button" data-open-calendar>
+                查看发布日历
+                <svg class="icon"><use href="#i-arrow-up-right"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="hero__quote">
+            <svg class="icon hero__quote-icon"><use href="#i-quote"/></svg>
+            <span>
+              <strong>保持好奇，慢慢发现。</strong>
+              <small>A LITTLE MINUTE TO THE WORLD.</small>
+            </span>
+          </div>
+        </section>
+
+        <section class="daily" id="dashboard" aria-labelledby="daily-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">YOUR DAILY WORKSPACE</p>
+              <h2 id="daily-title">你的每日信息站</h2>
+            </div>
+            <p class="section-note">从值得读的事，到值得关注的变化。</p>
+          </div>
+
+          <div class="search-wrap">
+            <div class="search-box" id="search-box">
+              <svg class="icon search-box__icon"><use href="#i-search"/></svg>
+              <input
+                id="search-input"
+                type="search"
+                placeholder="搜索新闻网站、关键词或领域…"
+                autocomplete="off"
+                spellcheck="false"
+                aria-label="搜索资讯"
+                aria-expanded="false"
+                aria-controls="search-results"
+                aria-autocomplete="list"
+                role="combobox"
+              >
+              <button class="search-clear" type="button" id="search-clear" aria-label="清空搜索" hidden>
+                <svg class="icon"><use href="#i-close"/></svg>
+              </button>
+              <kbd class="shortcut" aria-label="按斜杠快速搜索">/</kbd>
+            </div>
+            <div class="search-panel" id="search-panel" hidden>
+              <div id="search-results" role="listbox" aria-label="搜索建议"></div>
+            </div>
+            <div class="search-hints" aria-hidden="true">
+              <span>随时连接好奇的世界</span>
+              <span>发现感兴趣的事，打造专属阅读流</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="headlines" id="headlines" aria-labelledby="headlines-title">
+          <div class="section-heading section-heading--compact">
+            <div>
+              <p class="eyebrow">A FEW THINGS WORTH READING</p>
+              <div class="title-with-badge">
+                <h2 id="headlines-title">新闻头条与热搜</h2>
+                <span class="updated-badge"><span class="pulse-dot"></span>已更新</span>
+              </div>
+            </div>
+            <p class="timestamp" id="last-updated">更新于今日</p>
+          </div>
+
+          <div class="news-grid" id="news-grid"></div>
+          <p class="sr-only" id="news-status" role="status" aria-live="polite"></p>
+          <noscript>
+            <p class="noscript-note">请开启 JavaScript，以查看完整的今日资讯。</p>
+          </noscript>
+        </section>
+
+        <section class="curiosity" aria-labelledby="curiosity-title">
+          <div class="curiosity__intro">
+            <p class="eyebrow">CURATED PATHS</p>
+            <h2 id="curiosity-title">顺着好奇，再走远一点</h2>
+            <p>从今天的新闻出发，拐进一些没那么着急的角落。</p>
+          </div>
+          <div class="topic-cloud" aria-label="今日话题">
+            <button type="button" class="topic-chip" data-topic="人工智能"><span>人工智能</span><small>AI · 42 篇</small></button>
+            <button type="button" class="topic-chip" data-topic="城市生活"><span>城市生活</span><small>CITY · 28 篇</small></button>
+            <button type="button" class="topic-chip" data-topic="独立开发"><span>独立开发</span><small>MAKER · 19 篇</small></button>
+            <button type="button" class="topic-chip" data-topic="设计灵感"><span>设计灵感</span><small>DESIGN · 31 篇</small></button>
+            <button type="button" class="topic-chip" data-topic="全球科技"><span>全球科技</span><small>GLOBAL · 36 篇</small></button>
+            <button type="button" class="topic-chip" data-topic="阅读清单"><span>阅读清单</span><small>READING · 12 篇</small></button>
+          </div>
+        </section>
+        </div>
+
+        <section class="view view--channel" id="channel-view" role="tabpanel" aria-labelledby="tab-home" hidden></section>
+
+        <footer class="site-footer">
+          <p>© 2026 知闻 News Compass <span>·</span> 看见世界，也看见自己</p>
+          <p class="site-footer__demo">界面原型 · 资讯内容为演示数据</p>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="reader-dialog" id="article-dialog" aria-labelledby="reader-title">
+    <button class="icon-button reader__close" type="button" aria-label="关闭文章" data-close-dialog>
+      <svg class="icon"><use href="#i-close"/></svg>
+    </button>
+    <article class="reader">
+      <p class="reader__kicker" id="reader-kicker">今日阅读</p>
+      <h2 id="reader-title">文章标题</h2>
+      <p class="reader__meta" id="reader-meta"></p>
+      <div class="reader__body" id="reader-body"></div>
+      <div class="reader__footer">
+        <span class="reader__mark">
+          <img src="assets/mark.svg" alt="" width="26" height="26">
+          知闻编辑部
+        </span>
+        <button class="pill-button" type="button" id="reader-search-related">
+          继续探索相关话题
+          <svg class="icon"><use href="#i-arrow-right"/></svg>
+        </button>
+      </div>
+    </article>
+  </dialog>
+
+  <dialog class="calendar-dialog" id="calendar-dialog" aria-labelledby="calendar-title">
+    <section class="calendar">
+      <header class="calendar__head">
+        <div>
+          <p class="eyebrow">EDITORIAL CALENDAR</p>
+          <h2 id="calendar-title">发布日历</h2>
+        </div>
+        <button class="icon-button calendar__close" type="button" aria-label="关闭日历" data-close-dialog>
+          <svg class="icon"><use href="#i-close"/></svg>
+        </button>
+      </header>
+      <div class="calendar__layout">
+        <div class="calendar__board">
+          <div class="calendar__monthbar">
+            <button class="icon-button" type="button" id="calendar-prev" aria-label="上个月">
+              <svg class="icon"><use href="#i-arrow-left"/></svg>
+            </button>
+            <p id="calendar-month" aria-live="polite">2026年 11月</p>
+            <button class="icon-button" type="button" id="calendar-next" aria-label="下个月">
+              <svg class="icon"><use href="#i-arrow-right"/></svg>
+            </button>
+            <button class="text-link calendar__today" type="button" id="calendar-today">回到今天</button>
+          </div>
+          <div class="calendar__weekdays" aria-hidden="true">
+            <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+          </div>
+          <div class="calendar__grid" id="calendar-grid" role="group" aria-label="发布日期"></div>
+        </div>
+        <aside class="calendar__agenda">
+          <p class="eyebrow">ON THE DESK</p>
+          <h3 id="agenda-date" aria-live="polite">今日安排</h3>
+          <div id="agenda-list" class="agenda-list"></div>
+          <div class="calendar__note">
+            <svg class="icon"><use href="#i-leaf"/></svg>
+            <p>留一点空白给意外发现。不是每一天都需要被填满。</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
