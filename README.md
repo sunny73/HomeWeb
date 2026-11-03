@@ -22,6 +22,8 @@ npx serve .
 
 ![频道页签预览](screenshots/channel.png)
 
+![新闻聚合页预览](screenshots/news.png)
+
 ![金价行情页预览](screenshots/finance.png)
 
 移动端预览：![知闻移动端预览](screenshots/mobile.png)
@@ -29,6 +31,9 @@ npx serve .
 ## 已实现
 
 - 左侧菜单打开工作区页签：可切换、关闭、自动回到「全部资讯」首页
+- 新闻聚合页：综合、科技、娱乐、社区、购物、财经、开发、简报、AI 分类
+  - 知乎、微博、微信、澎湃等来源榜单，热门 / 最新排序
+  - 来源快捷跳转与卡片高亮
 - 每个频道拥有独立页面：频道介绍、主推内容与更新列表
 - 理财栏目：金价、油价行情卡、近周期走势图与市场速览
 - 固定侧边导航，可折叠分组，移动端抽屉导航
@@ -47,9 +52,9 @@ app.js                  数据、页签、搜索、日历与文章交互
 assets/landscape.svg    原创 Hero 插画
 assets/mark.svg         品牌标志
 assets/favicon.svg      站点图标
-screenshots/            桌面端、频道页、行情页与移动端预览
+screenshots/            桌面端、新闻页、频道页、行情页与移动端预览
 ```
 
 ## 说明
 
-页面中的新闻、榜单、价格与日程均为界面演示数据，不代表真实报道、实时行情或投资建议。若要接入真实内容，可将 `app.js` 顶部的 `columns`、`channels` 与 `topics` 数据替换为 API 返回结果。
+页面中的新闻、榜单、价格与日程均为界面演示数据，不代表真实报道、实时行情或投资建议。若要接入真实内容，可将 `app.js` 顶部的 `columns`、`channels`、`topics` 与 `newsDeskCategories` 数据替换为 API 返回结果。

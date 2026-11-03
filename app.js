@@ -298,6 +298,13 @@
   );
 
   const channels = {
+    '新闻': {
+      group: '资讯阅读',
+      icon: 'newspaper',
+      kind: 'newsdesk',
+      intro: '把不同平台正在讨论的事，收进同一张桌面。不是替你做判断，而是让重要的声音更容易被看见。',
+      items: []
+    },
     '新闻导航': {
       group: '资讯阅读',
       icon: 'compass',
@@ -488,6 +495,128 @@
     { title: '阅读清单', meta: 'READING · 12 篇', channel: '技术周刊', icon: 'newspaper' }
   ];
 
+  const newsDeskCategories = {
+    '综合': {
+      label: '综合',
+      count: 490,
+      baseHeat: 8420000,
+      step: 780000,
+      palette: ['#3d74d9', '#df6658', '#46a373', '#59656d'],
+      sources: [
+        { name: '知乎', mark: '知', type: '热榜', items: ['你有哪些坚持了很久的小习惯？', '年轻人开始重新整理自己的书架', '一个人旅行时，怎样安排一天最舒服', '那些看似无用却让人快乐的技能', '如何把周末过得像一次小长假', '如何看待「附近」正在重新变得重要', '你最近一次感到被理解是什么时候', '三十岁之后，哪些事情变得没那么重要', '有哪些适合一个人做的长期爱好', '为什么越来越多人开始记录天气'] },
+        { name: '微博', mark: '博', type: '热搜榜', items: ['城市里的秋日限定颜色', '这届年轻人开始流行早睡打卡', '一张图记录普通人的通勤路', '你会为一家小店专门去一座城吗', '今天最想分享的一件小事', '秋天第一杯热饮', '下班后的城市公共空间', '你最近在循环哪首歌', '有哪些小城市值得慢慢逛', '今天也为自己做一件小事'] },
+        { name: '微信', mark: '信', type: '24h 热文榜', items: ['把日子过慢一点，从一顿早餐开始', '独处不是孤独，而是一种能力', '那些在深夜仍亮着灯的店铺', '我们为什么越来越需要散步', '写给秋天的一封短信', '那些离开大厂的人，后来怎么样了', '如何在家里留出一个阅读角落', '城市里的旧物修复师', '一份给年轻人的厨房入门清单', '我们为什么喜欢看别人整理房间'] },
+        { name: '澎湃', mark: '澎', type: '热榜', items: ['城市更新中的老街区，如何留住烟火气', '公共图书馆的夜间实验', '社区食堂里的代际相遇', '一条河流的十年变化', '当年轻人开始关心菜市场', '老厂房改造之后，谁在使用这些空间', '一条街道的无障碍改造观察', '社区花园里的公共生活', '菜市场里的城市记忆', '那些被重新打开的河边步道'] }
+      ]
+    },
+    '科技': {
+      label: '科技',
+      count: 326,
+      baseHeat: 5120000,
+      step: 490000,
+      palette: ['#4a64c7', '#d25c47', '#c89a2b', '#4c7e9c'],
+      sources: [
+        { name: '36氪', mark: '氪', type: '热门', items: ['AI 硬件创业公司重新定义随身设备', '国产大模型在垂直行业加速落地', '智能眼镜的下一站：全天候佩戴', '新能源车企竞速补能网络', '一家小公司如何做出长红产品'] },
+        { name: 'IT之家', mark: 'IT', type: '热榜', items: ['新一代 Wi-Fi 标准进入规模商用阶段', '轻薄本迎来 OLED 普及年', '折叠屏手机的折痕正在消失', '国产芯片产业链的新进展', '桌面系统更新带来多端协同'] },
+        { name: '少数派', mark: '少', type: '热门', items: ['一套更轻量的数字笔记系统', '用自动化工具整理每日信息', '手机摄影的减法练习', '我的桌面为什么只剩下一台设备', '如何设计一个真正好用的日历'] },
+        { name: '爱范儿', mark: '范', type: '热门', items: ['当机器开始理解人的情绪', '城市骑行装备的新选择', '智能家居进入无感时代', '一款产品如何照顾到少数人', '设计不只是好看'] }
+      ]
+    },
+    '娱乐': {
+      label: '娱乐',
+      count: 214,
+      baseHeat: 3860000,
+      step: 410000,
+      palette: ['#d15c7b', '#5a8d63', '#c8873f', '#3f4652'],
+      sources: [
+        { name: '微博文娱', mark: '娱', type: '文娱榜', items: ['本周值得进电影院的三部电影', '一场演唱会背后的城市夜晚', '年轻演员的慢热时刻', '老剧重映为何仍能打动观众', '音乐节之外的现场'] },
+        { name: '豆瓣', mark: '豆', type: '热门', items: ['一部被低估的小成本电影', '最近读过的最温柔的一本书', '当我们在看展时在看什么', '那些适合秋天重看的电影', '一个人的深夜歌单'] },
+        { name: '猫眼', mark: '猫', type: '票房榜', items: ['周末档新片口碑观察', '动画电影为何频频出圈', '影院里的银发观众变多了', '电影修复让经典重新发光', '小剧场正在成为城市新地标'] },
+        { name: '抖音', mark: '抖', type: '热点榜', items: ['非遗手艺人的短视频日常', '一段舞蹈带火一座小城', '五分钟看懂一部经典电影', '普通人的舞台也在发光', '旅行博主的镜头之外'] }
+      ]
+    },
+    '社区': {
+      label: '社区',
+      count: 178,
+      baseHeat: 2780000,
+      step: 330000,
+      palette: ['#3d74d9', '#5b8b66', '#c28e3e', '#c0635b'],
+      sources: [
+        { name: '知乎', mark: '知', type: '热榜', items: ['如何建立一个不焦虑的信息系统', '为什么很多人开始重新使用纸笔', '怎样在忙碌中保留一点空白', '一个人住，如何让家变得温暖', '如何培养长期阅读的习惯'] },
+        { name: '豆瓣小组', mark: '组', type: '热门', items: ['今天也在认真生活', '在菜市场发现的小确幸', '那些坚持了很多年的小爱好', '深夜食堂式的一次聚会', '整理房间也是整理心情'] },
+        { name: 'V2EX', mark: 'V', type: '热门', items: ['独立开发者的第 100 天', '如何给自己做一次技术复盘', '小团队远程协作的真实体验', '一台旧电脑还能做什么', '从零开始搭建个人博客'] },
+        { name: '小红书', mark: '书', type: '热点', items: ['秋天的第一条散步路线', '一周早餐不重样', '租房也能拥有的氛围感角落', '城市里的免费快乐', '普通人的周末仪式感'] }
+      ]
+    },
+    '购物': {
+      label: '购物',
+      count: 156,
+      baseHeat: 2450000,
+      step: 290000,
+      palette: ['#d05a56', '#c54a43', '#e0913f', '#9c5a72'],
+      sources: [
+        { name: '什么值得买', mark: '值', type: '精选', items: ['入秋后最值得换新的三件小家电', '一款适合通勤的轻量双肩包', '桌面收纳的五个低成本方案', '换季衣物收纳清单', '给父母的实用礼物清单'] },
+        { name: '京东', mark: '京', type: '热卖', items: ['家用净水器的选购要点', '开学季笔记本怎么挑', '扫地机器人避坑指南', '一张表看懂家电能效等级', '厨房小电器的使用频率'] },
+        { name: '淘宝', mark: '淘', type: '热销', items: ['手作店铺里的秋天', '一块地毯改变房间氛围', '小众香薰的真实体验', '如何挑一只耐用的通勤杯', '桌面绿植入门'] },
+        { name: '天猫', mark: '天', type: '榜单', items: ['本周家居好物榜', '换季床品的材质选择', '咖啡器具入门清单', '小户型收纳的五个思路', '智能门锁的选购笔记'] }
+      ]
+    },
+    '财经': {
+      label: '财经',
+      count: 205,
+      baseHeat: 4630000,
+      step: 460000,
+      palette: ['#38694f', '#9a6b3b', '#55708f', '#b05a4d'],
+      sources: [
+        { name: '财新', mark: '财', type: '热门', items: ['制造业投资的新信号', '消费市场正在发生的结构性变化', '城市更新如何平衡保护与发展', '中小企业融资渠道的新探索', '绿色金融的下一程'] },
+        { name: '华尔街见闻', mark: '见', type: '热文', items: ['全球市场等待新一轮数据指引', '黄金价格为何维持高位震荡', '原油市场的供需博弈', '美元指数与风险资产的联动', '投资者重新关注现金流'] },
+        { name: '雪球', mark: '雪', type: '热帖', items: ['一位长期投资者的年度复盘', '如何理解一家公司的护城河', '市场波动中的仓位管理', '普通人如何建立自己的投资框架', '分红与成长，如何取舍'] },
+        { name: '第一财经', mark: '一', type: '热榜', items: ['新能源产业链的出海机会', '消费品牌如何穿越周期', '数字经济与实体经济的交汇', '区域经济的新增长极', '年轻人的理财方式正在改变'] }
+      ]
+    },
+    '开发': {
+      label: '开发',
+      count: 142,
+      baseHeat: 2280000,
+      step: 270000,
+      palette: ['#3b4a55', '#d06b48', '#3e7f9e', '#7a5ea7'],
+      sources: [
+        { name: 'GitHub', mark: 'G', type: 'Trending', items: ['本周值得关注的十个开源项目', '一个轻量级数据库的新版本', '开发者工具正在变得更安静', '用一行命令部署你的第一个应用', '开源项目的维护者困境'] },
+        { name: 'Hacker News', mark: 'H', type: 'Top', items: ['为什么我把 side project 的后端换回了 SQLite', '浏览器里的本地优先应用正在回归', '一份给前端工程师的 CSS 新特性清单', '从零实现一个向量数据库', '独立开发者的慢发布实验'] },
+        { name: '掘金', mark: '掘', type: '热榜', items: ['Rust 在小工具里的实际体验', '前端性能优化的十个细节', '如何设计一套好用的组件库', 'Node.js 服务的可观测性实践', '从 0 到 1 搭建内部工具'] },
+        { name: 'InfoQ', mark: 'I', type: '热门', items: ['架构演进中的取舍', 'AI 工程化落地的关键问题', '微服务之后，我们如何组织系统', '团队如何做有效的技术评审', '数据治理从哪一步开始'] }
+      ]
+    },
+    '简报': {
+      label: '简报',
+      count: 96,
+      baseHeat: 1840000,
+      step: 210000,
+      palette: ['#456b56', '#9b7345', '#4e7891', '#7d637f'],
+      sources: [
+        { name: '今日简报', mark: '简', type: 'Daily', items: ['今日值得关注的五件小事', '一条新闻的三种读法', '周末城市活动清单', '本周天气与出行提示', '今天适合做的一件小事'] },
+        { name: '财经早餐', mark: '早', type: '财经', items: ['开盘前需要知道的三个数字', '本周财经日历', '一份小白也能读懂的季报', '消费数据里的生活变化', '汇率波动与普通人'] },
+        { name: '科技早报', mark: '科', type: '科技', items: ['今日科技圈的三条更新', '一款新硬件的真实体验', 'AI 工具清单：本周新增', '开源社区今日动态', '科技产品背后的设计取舍'] },
+        { name: '城市观察', mark: '城', type: '城市', items: ['城市更新中的一条街', '公共交通的最后一公里', '公园里的新公共生活', '老菜场的改造实验', '夜间经济与城市温度'] }
+      ]
+    },
+    'AI': {
+      label: 'AI',
+      count: 268,
+      baseHeat: 3340000,
+      step: 360000,
+      palette: ['#4d6fa8', '#5f8b7f', '#b76e5f', '#735f9e'],
+      sources: [
+        { name: '机器之心', mark: '机', type: '热门', items: ['多模态模型开始进入日常工具', '小模型的实用主义正在回归', 'AI Agent 如何真正进入工作流', '开源模型社区的下一阶段', '评测榜单之外，我们该看什么'] },
+        { name: '量子位', mark: '量', type: '热门', items: ['智能眼镜里的 AI 助手', '机器人开始学会整理桌面', 'AI 编程工具的真实使用体验', '一张图看懂本周模型更新', '语音交互的下一站'] },
+        { name: 'Hugging Face', mark: 'H', type: 'Trending', items: ['本周最受欢迎的开源模型', '一个小型视觉模型的应用实验', '数据集质量为什么比规模更重要', '开发者如何选择适合自己的模型', '开源社区的新协作方式'] },
+        { name: 'Papers with Code', mark: 'P', type: 'Trending', items: ['让模型更懂长文档的新方法', '多智能体协作的边界', '一篇论文如何被真正复现', '推理效率的下一步', '从研究到产品的距离'] }
+      ]
+    }
+  };
+
+  const newsDeskCategoryOrder = ['综合', '科技', '娱乐', '社区', '购物', '财经', '开发', '简报', 'AI'];
+
   const state = {
     readIds: new Set(),
     toastTimer: null,
@@ -505,6 +634,10 @@
     ],
     activeTabId: 'home',
     nextTabId: 1,
+    newsDesk: {
+      category: '综合',
+      sort: 'hot'
+    },
     calendar: {
       viewYear: 0,
       viewMonth: 0,
@@ -821,6 +954,99 @@
     return channelFeatureLabels[name] || "EDITOR'S PICK";
   }
 
+  function formatNewsHeat(value) {
+    if (value >= 100000000) return `${(value / 100000000).toFixed(1)} 亿`;
+    if (value >= 10000) return `${Math.round(value / 10000)} 万`;
+    return String(value);
+  }
+
+  function newsSourceCardMarkup(category, source, sourceIndex) {
+    const sort = state.newsDesk.sort;
+    const orderedItems = sort === 'latest' ? [...source.items].reverse() : source.items;
+    const accent = category.palette[sourceIndex] || category.palette[0];
+    const baseHeat = category.baseHeat - sourceIndex * 650000;
+    const step = category.step + sourceIndex * 45000;
+    const latestTimes = ['刚刚', '4 分钟前', '9 分钟前', '16 分钟前', '28 分钟前', '42 分钟前', '1 小时前', '2 小时前', '3 小时前', '4 小时前'];
+
+    return `
+      <article class="news-source-card" data-news-source-card="${escapeHTML(source.name)}" style="--source-accent:${accent}">
+        <header class="news-source-card__head">
+          <span class="news-source-mark" aria-hidden="true">${escapeHTML(source.mark)}</span>
+          <h3>${escapeHTML(source.name)}</h3>
+          <span class="news-source-type">${escapeHTML(source.type)}</span>
+        </header>
+        <ol class="news-source-list">
+          ${orderedItems.map((title, index) => {
+            const heat = Math.max(98000, baseHeat - index * step);
+            const meta = sort === 'latest'
+              ? (latestTimes[index] || `${Math.max(1, index * 7)} 分钟前`)
+              : `${formatNewsHeat(heat)}`;
+            return `
+              <li class="news-source-item${index < 3 ? ' is-top' : ''}">
+                <span class="news-source-rank">${index + 1}</span>
+                <span class="news-source-title">${escapeHTML(title)}</span>
+                <span class="news-source-heat">${escapeHTML(meta)}</span>
+              </li>`;
+          }).join('')}
+        </ol>
+      </article>`;
+  }
+
+  function newsDeskPageMarkup(channel) {
+    const category = newsDeskCategories[state.newsDesk.category] || newsDeskCategories['综合'];
+    const sort = state.newsDesk.sort;
+    const now = new Date();
+    const sources = category.sources;
+
+    return `
+      <div class="channel-page news-desk-page">
+        <header class="news-desk-head">
+          <div class="news-desk-head__copy">
+            <p class="eyebrow">NEWS DESK / 全站热榜</p>
+            <h1>新闻</h1>
+            <p class="news-desk-head__intro">${escapeHTML(channel.intro)}</p>
+          </div>
+          <div class="news-desk-head__meta">
+            <span class="news-live"><span class="status-dot"></span>持续更新</span>
+            <span>更新于 ${formatClock(now)}</span>
+          </div>
+        </header>
+
+        <div class="news-categories" role="group" aria-label="新闻分类">
+          ${newsDeskCategoryOrder.map((name) => `
+            <button
+              class="news-category${name === category.label ? ' is-active' : ''}"
+              type="button"
+              data-news-category="${escapeHTML(name)}"
+              aria-pressed="${name === category.label}"
+            >${escapeHTML(name)}</button>`).join('')}
+        </div>
+
+        <div class="news-subbar">
+          <div class="news-source-links" role="group" aria-label="榜单来源">
+            <button class="news-source-link news-source-link--primary" type="button" data-news-source="all">热门榜单</button>
+            ${sources.map((source) => `<button class="news-source-link" type="button" data-news-source="${escapeHTML(source.name)}">${escapeHTML(source.name)}</button>`).join('')}
+          </div>
+          <div class="news-sort" role="group" aria-label="排序方式">
+            <button class="news-sort__button${sort === 'hot' ? ' is-active' : ''}" type="button" data-news-sort="hot" aria-pressed="${sort === 'hot'}">热门</button>
+            <span aria-hidden="true">/</span>
+            <button class="news-sort__button${sort === 'latest' ? ' is-active' : ''}" type="button" data-news-sort="latest" aria-pressed="${sort === 'latest'}">最新</button>
+          </div>
+        </div>
+
+        <div class="news-board-head">
+          <p><strong>${escapeHTML(category.label)}</strong><span>${category.count}</span> 个榜单</p>
+          <span>数据来自公开榜单 · 界面演示</span>
+        </div>
+
+        <div class="news-source-grid">
+          ${sources.map((source, index) => newsSourceCardMarkup(category, source, index)).join('')}
+        </div>
+
+        <p class="news-desk-disclaimer">榜单条目为界面演示数据，用于展示新闻聚合布局，不代表实时热度或真实排名。</p>
+      </div>`;
+  }
+
   function channelBannerMarkup(name, channel, code) {
     const isMarket = channel.kind === 'market';
     const meta = isMarket
@@ -992,6 +1218,10 @@
     const channel = channels[name];
     if (!channel) return `<p class="channel-empty">这个频道正在整理中。</p>`;
 
+    if (channel.kind === 'newsdesk') {
+      return newsDeskPageMarkup(channel);
+    }
+
     const group = channel.group;
     const tone = channelToneByGroup[group] || 'news';
     const code = String(Object.keys(channels).indexOf(name) + 1).padStart(2, '0');
@@ -1066,6 +1296,21 @@
   function renderChannelPage(name) {
     if (!channelView) return;
     channelView.innerHTML = channelPageMarkup(name);
+
+    if (name === '新闻') {
+      window.requestAnimationFrame(() => {
+        const bar = channelView.querySelector('.news-categories');
+        const active = bar?.querySelector('.news-category.is-active');
+        if (!bar || !active) return;
+        const barRect = bar.getBoundingClientRect();
+        const activeRect = active.getBoundingClientRect();
+        if (activeRect.left < barRect.left) {
+          bar.scrollBy({ left: activeRect.left - barRect.left - 8, behavior: 'auto' });
+        } else if (activeRect.right > barRect.right) {
+          bar.scrollBy({ left: activeRect.right - barRect.right + 8, behavior: 'auto' });
+        }
+      });
+    }
   }
 
   function activateTab(id, { focusTab = true, restoreScroll = true } = {}) {
@@ -1221,6 +1466,48 @@
     });
 
     channelView?.addEventListener('click', (event) => {
+      const categoryButton = event.target.closest('[data-news-category]');
+      if (categoryButton) {
+        state.newsDesk.category = categoryButton.dataset.newsCategory;
+        renderChannelPage('新闻');
+        window.requestAnimationFrame(() => {
+          channelView.querySelector(`[data-news-category="${state.newsDesk.category}"]`)?.focus({ preventScroll: true });
+        });
+        return;
+      }
+
+      const sortButton = event.target.closest('[data-news-sort]');
+      if (sortButton) {
+        state.newsDesk.sort = sortButton.dataset.newsSort;
+        renderChannelPage('新闻');
+        window.requestAnimationFrame(() => {
+          channelView.querySelector(`[data-news-sort="${state.newsDesk.sort}"]`)?.focus({ preventScroll: true });
+        });
+        return;
+      }
+
+      const sourceLink = event.target.closest('[data-news-source]');
+      if (sourceLink) {
+        const sourceName = sourceLink.dataset.newsSource;
+        const cards = $$('.news-source-card', channelView);
+        if (sourceName === 'all') {
+          channelView.querySelector('.news-source-grid')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return;
+        }
+
+        const targetCard = cards.find((card) => card.dataset.newsSourceCard === sourceName);
+        if (!targetCard) return;
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        targetCard.classList.add('is-highlighted');
+        $$('.news-source-link', channelView).forEach((link) => link.classList.remove('is-selected'));
+        sourceLink.classList.add('is-selected');
+        window.setTimeout(() => {
+          targetCard.classList.remove('is-highlighted');
+          sourceLink.classList.remove('is-selected');
+        }, 1400);
+        return;
+      }
+
       if (!event.target.closest('[data-channel-search]')) return;
       event.stopPropagation();
       const tab = currentTab();
@@ -1252,7 +1539,12 @@
         matchesText(channel.group) ||
         matchesText(channel.intro) ||
         channel.items.some((item) => matchesText(item.title) || matchesText(item.meta)) ||
-        (channel.quotes || []).some((quote) => matchesText(quote.label) || matchesText(quote.value)))
+        (channel.quotes || []).some((quote) => matchesText(quote.label) || matchesText(quote.value)) ||
+        (channel.kind === 'newsdesk' && Object.values(newsDeskCategories).some((category) =>
+          category.sources.some((source) =>
+            matchesText(source.name) ||
+            matchesText(source.type) ||
+            source.items.some((title) => matchesText(title))))))
       .slice(0, 4)
       .map(([name, channel]) => ({ name, ...channel }));
 
