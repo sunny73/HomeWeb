@@ -1,0 +1,15 @@
+{
+  "name": "news-compass",
+  "version": "1.0.0",
+  "private": true,
+  "description": "知闻 News Compass — news dashboard with a Node.js auth backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "dev": "node --watch --disable-warning=ExperimentalWarning server.js",
+    "sync:aihot": "node scripts/sync-aihot.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}

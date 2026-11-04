@@ -316,6 +316,14 @@
         { title: '一份不焦虑的新闻阅读指南', meta: '方法 · 4 分钟阅读' }
       ]
     },
+    '精选': {
+      group: '资讯阅读',
+      icon: 'diamond',
+      kind: 'aihot',
+      tone: 'aihot',
+      intro: '来自 AIHOT 的 AI 行业精选摘要。把散落在不同来源里的发布、观点与产品变化，收成一份每天都能快速读完的清单。',
+      items: []
+    },
     '趣闻爆料': {
       group: '资讯阅读',
       icon: 'leaf',
@@ -361,6 +369,42 @@
         { title: '会议纪要', meta: '决策提取 · 待办跟进 · 多语言' },
         { title: '长文写作', meta: '结构规划 · 事实核对 · 风格统一' },
         { title: '数据洞察', meta: '表格分析 · 异常发现 · 图表建议' }
+      ]
+    },
+    '漫画制作': {
+      group: 'AI 工具',
+      icon: 'comic',
+      intro: '从一句灵感出发，把它变成有角色、有分镜、有情绪的画面。工具负责加快速度，故事仍然由你决定。',
+      items: [
+        { title: '把一句灵感变成四格漫画', meta: '创作指南 · 6 分钟阅读', badge: '入门' },
+        { title: '角色一致性：让主角每一格都像同一个人', meta: '制作技巧 · 8 分钟阅读' },
+        { title: '分镜脚本模板：起承转合的四个画面', meta: '模板 · 可直接套用' },
+        { title: '本周风格灵感：木刻版画与水彩', meta: '风格参考 · 5 分钟阅读' },
+        { title: '给漫画加一点留白，故事会更有呼吸', meta: '编辑笔记 · 3 分钟阅读' }
+      ]
+    },
+    '视频制作': {
+      group: 'AI 工具',
+      icon: 'film',
+      intro: '把零散的画面、音乐和想法剪成一段完整叙事。从分镜到导出，这里整理更轻量的制作方法。',
+      items: [
+        { title: '一条 30 秒短视频的完整制作流程', meta: '制作指南 · 8 分钟阅读', badge: '推荐' },
+        { title: '用文字生成分镜，再把画面交给 AI', meta: '工作流 · 6 分钟阅读' },
+        { title: '让转场更自然的三个小技巧', meta: '剪辑技巧 · 4 分钟阅读' },
+        { title: '视频配乐怎么选：情绪比节奏更重要', meta: '声音设计 · 5 分钟阅读' },
+        { title: '导出前的五分钟检查清单', meta: '发布准备 · 3 分钟阅读' }
+      ]
+    },
+    '歌曲制作': {
+      group: 'AI 工具',
+      icon: 'music',
+      intro: '从一段旋律、一句歌词开始，试着把脑子里的声音做出来。不必一次完美，先让它被听见。',
+      items: [
+        { title: '从一段旋律开始：AI 编曲入门', meta: '入门指南 · 7 分钟阅读', badge: '新手' },
+        { title: '写歌词时，先找到一句想说的话', meta: '创作方法 · 5 分钟阅读' },
+        { title: '用 AI 生成人声，需要注意什么', meta: '制作技巧 · 6 分钟阅读' },
+        { title: '本周歌单：适合夜晚的轻电子', meta: '灵感歌单 · 12 首' },
+        { title: '给一段 demo 留出呼吸的空间', meta: '编曲笔记 · 4 分钟阅读' }
       ]
     },
     '今天吃什么': {
@@ -438,6 +482,42 @@
         { title: '国际油价小幅回落，布伦特原油震荡整理', meta: '市场观察 · 4 分钟阅读' },
         { title: '一箱油的钱，怎么算更清楚', meta: '用车指南 · 5 分钟阅读' },
         { title: '油价调整机制里的「十个工作日」', meta: '基础知识 · 6 分钟阅读' }
+      ]
+    },
+    '乐乐大事记': {
+      group: '育儿',
+      icon: 'flag',
+      intro: '把成长里那些小小的第一次认真记下来。不是为了比较，只是想在很久以后，还能想起当时的惊喜。',
+      items: [
+        { title: '第一次自己站稳，是在客厅的地毯上', meta: '10 月 26 日 · 10 个月 12 天', badge: '新记录' },
+        { title: '会叫「妈妈」了，声音软软的', meta: '10 月 18 日 · 第一次开口' },
+        { title: '第一次自己拿起小勺子', meta: '10 月 09 日 · 吃饭进行时' },
+        { title: '周末去了第一次动物园', meta: '09 月 27 日 · 看见长颈鹿' },
+        { title: '第一颗小牙冒出来了', meta: '09 月 12 日 · 下中切牙' }
+      ]
+    },
+    '宝宝喂养': {
+      group: '育儿',
+      icon: 'bottle',
+      intro: '记录奶量、辅食和作息的小变化。每个宝宝都有自己的节奏，不急着和别人一样。',
+      items: [
+        { title: '今日喂养：奶量约 720ml，辅食两餐', meta: '今天 · 08:00 / 12:30 / 18:00', badge: '记录' },
+        { title: '10 个月辅食：从泥糊过渡到小颗粒', meta: '喂养指南 · 5 分钟阅读' },
+        { title: '让宝宝爱上蔬菜的四个小方法', meta: '辅食灵感 · 4 分钟阅读' },
+        { title: '夜奶减少后，如何安排睡前最后一餐', meta: '作息 · 3 分钟阅读' },
+        { title: '一周辅食备菜清单', meta: '周末准备 · 10 分钟阅读' }
+      ]
+    },
+    '早教': {
+      group: '育儿',
+      icon: 'blocks',
+      intro: '不追求提前学会什么，只把游戏、阅读和陪伴放进每天的日常。成长会在不经意间发生。',
+      items: [
+        { title: '本周亲子游戏：把积木放进小篮子', meta: '精细动作 · 10 分钟', badge: '本周' },
+        { title: '10 个月宝宝的绘本清单：翻翻书与触摸书', meta: '亲子阅读 · 5 分钟阅读' },
+        { title: '在客厅搭一个安全的爬行小路线', meta: '大运动 · 15 分钟' },
+        { title: '每天十分钟的儿歌时间，怎么玩更有趣', meta: '语言启蒙 · 4 分钟阅读' },
+        { title: '不要急着纠正：让宝宝自己试一试', meta: '陪伴笔记 · 3 分钟阅读' }
       ]
     },
     '英语学习': {
@@ -634,6 +714,9 @@
     ],
     activeTabId: 'home',
     nextTabId: 1,
+    aihot: {
+      data: window.AIHOT_FEATURED && Array.isArray(window.AIHOT_FEATURED.items) ? window.AIHOT_FEATURED : null
+    },
     newsDesk: {
       category: '综合',
       sort: 'hot'
@@ -862,8 +945,10 @@
   const channelToneByGroup = {
     '资讯阅读': 'news',
     'AI 观察': 'ai',
+    'AI 工具': 'creator',
     '生活工具': 'life',
     '理财': 'finance',
+    '育儿': 'parenting',
     '学习板块': 'learn'
   };
 
@@ -873,10 +958,16 @@
     '模型榜单': 'TOP OF THE WEEK',
     'Agent 工具榜': 'TOOL OF THE WEEK',
     'Skill 榜单': 'MOST USED SKILL',
+    '漫画制作': 'STORYBOARD',
+    '视频制作': 'SCENE & CUT',
+    '歌曲制作': 'SOUND SKETCH',
     '今天吃什么': "TODAY'S PICK",
     '价格参考': 'VALUE WATCH',
     '金价': 'MARKET WATCH',
     '油价': 'PRICE WATCH',
+    '乐乐大事记': 'A SMALL MILESTONE',
+    '宝宝喂养': 'FEEDING NOTES',
+    '早教': 'PLAY & LEARN',
     '英语学习': 'DAILY READING',
     '背单词': 'WORD OF THE DAY',
     '技术周刊': 'LATEST ISSUE',
@@ -886,8 +977,10 @@
   const channelNotes = {
     '资讯阅读': '编辑台会把重要但不喧哗的消息留在这里，也保留那些值得多看一眼的细节。',
     'AI 观察': '不追逐每一次刷新，只记录真正改变工作方式与思考方式的变化。',
+    'AI 工具': '工具只是起点。真正让作品留下来的，仍然是你想表达的那件事。',
     '生活工具': '好的工具不替你做决定，只让选择更容易一点、具体一点。',
     '理财': '价格会波动，判断需要自己的节奏。这里的数据仅作界面演示，不构成任何投资建议。',
+    '育儿': '成长没有统一的时间表。记录当下、照顾好眼前的小事，就是最好的礼物。',
     '学习板块': '每天一点，不求速成，只求真正留下来。'
   };
 
@@ -1049,9 +1142,12 @@
 
   function channelBannerMarkup(name, channel, code) {
     const isMarket = channel.kind === 'market';
+    const isAihot = channel.kind === 'aihot';
     const meta = isMarket
       ? `<span>${channel.quotes.length} 项报价</span><i aria-hidden="true"></i><span>示例行情 · 每日更新</span>`
-      : `<span>${channel.items.length} 条精选</span><i aria-hidden="true"></i><span>每日 09:00 更新</span>`;
+      : isAihot
+        ? '<span>AIHOT 精选</span><i aria-hidden="true"></i><span>来自 AIHOT · 精选摘要</span>'
+        : `<span>${channel.items.length} 条精选</span><i aria-hidden="true"></i><span>每日 09:00 更新</span>`;
 
     return `
       <header class="channel-banner">
@@ -1214,6 +1310,86 @@
       </div>`;
   }
 
+  function safeExternalUrl(value) {
+    try {
+      const url = new URL(String(value || ''), 'https://aihot.news/');
+      if (url.protocol === 'https:' || url.protocol === 'http:') return url.href;
+    } catch {
+      // Fall through to an empty href.
+    }
+    return '';
+  }
+
+  function formatAihotTime(value) {
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return '';
+    const parts = shanghaiParts(date);
+    return `${parts.month}/${parts.day} ${parts.hour}:${parts.minute}`;
+  }
+
+  function aihotCardMarkup(item) {
+    const aiHotUrl = safeExternalUrl(item.aiHotUrl);
+    const originalUrl = safeExternalUrl(item.originalUrl);
+    const published = formatAihotTime(item.publishedAt);
+    return `
+      <article class="aihot-card">
+        <div class="aihot-card__head">
+          <span class="aihot-card__category">${escapeHTML(item.category || 'AI')}</span>
+          <time datetime="${escapeHTML(item.publishedAt || '')}">${escapeHTML(published)}</time>
+        </div>
+        <h3 class="aihot-card__title">
+          <a href="${escapeHTML(aiHotUrl || '#')}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.title)}</a>
+        </h3>
+        <p class="aihot-card__summary">${escapeHTML(item.summary || '')}</p>
+        <div class="aihot-card__foot">
+          <span class="aihot-card__source">${escapeHTML(item.source || 'AIHOT')}</span>
+          <span class="aihot-card__links">
+            ${aiHotUrl ? `<a href="${escapeHTML(aiHotUrl)}" target="_blank" rel="noopener noreferrer">AIHOT ${icon('arrow-up-right')}</a>` : ''}
+            ${originalUrl ? `<a href="${escapeHTML(originalUrl)}" target="_blank" rel="noopener noreferrer">原文</a>` : ''}
+          </span>
+        </div>
+      </article>`;
+  }
+
+  function aihotPageMarkup(name, channel, banner) {
+    const data = state.aihot.data;
+    const sourceUrl = safeExternalUrl(channel.sourceUrl || data?.sourceUrl || 'https://aihot.news/');
+    const body = data && data.items.length
+      ? `
+        <div class="aihot-meta">
+          <span><span class="status-dot"></span>最近同步 ${escapeHTML(formatAihotTime(data.fetchedAt))}</span>
+          <span>${data.items.length} 条精选 · 来自 AIHOT</span>
+        </div>
+        <div class="aihot-grid">
+          ${data.items.map(aihotCardMarkup).join('')}
+        </div>
+        <p class="aihot-disclaimer">摘要由 AIHOT 整理，内容版权归原作者所有。点击标题或 AIHOT 链接可前往站内阅读。</p>`
+      : `
+        <div class="aihot-empty">
+          <svg class="icon"><use href="#i-diamond"/></svg>
+          <strong>精选摘要暂时未同步</strong>
+          <p>可以先前往 AIHOT 浏览最新内容，稍后再回来看看。</p>
+        </div>`;
+
+    return `
+      <div class="channel-page tone-aihot">
+        ${banner}
+        <div class="channel-content">
+          <div class="channel-section-head">
+            <div>
+              <p class="eyebrow">AIHOT CURATION</p>
+              <h2>精选摘要</h2>
+            </div>
+            <a class="channel-search-link" href="${escapeHTML(sourceUrl || 'https://aihot.news/')}" target="_blank" rel="noopener noreferrer">
+              打开 AIHOT
+              ${icon('arrow-up-right')}
+            </a>
+          </div>
+          ${body}
+        </div>
+      </div>`;
+  }
+
   function channelPageMarkup(name) {
     const channel = channels[name];
     if (!channel) return `<p class="channel-empty">这个频道正在整理中。</p>`;
@@ -1223,12 +1399,16 @@
     }
 
     const group = channel.group;
-    const tone = channelToneByGroup[group] || 'news';
+    const tone = channel.tone || channelToneByGroup[group] || 'news';
     const code = String(Object.keys(channels).indexOf(name) + 1).padStart(2, '0');
     const banner = channelBannerMarkup(name, channel, code);
 
     if (channel.kind === 'market') {
       return marketPageMarkup(name, channel, banner, tone);
+    }
+
+    if (channel.kind === 'aihot') {
+      return aihotPageMarkup(name, channel, banner);
     }
 
     const items = channel.items;
@@ -1925,6 +2105,72 @@
 
   const weatherButton = $('#weather-button');
   const weatherPopover = $('#weather-popover');
+  const forecastGrid = $('#forecast-grid');
+  const forecastRange = $('#forecast-range');
+  const weatherUpdated = $('#weather-updated');
+  const clothingTitle = $('#clothing-title');
+  const clothingNote = $('#clothing-note');
+
+  const weatherForecast = [
+    { condition: '多云', icon: 'cloud-sun', high: 21, low: 15, rain: 10 },
+    { condition: '晴', icon: 'sun', high: 22, low: 16, rain: 0 },
+    { condition: '小雨', icon: 'rain', high: 19, low: 14, rain: 70 },
+    { condition: '阴', icon: 'overcast', high: 18, low: 13, rain: 20 },
+    { condition: '多云', icon: 'cloud-sun', high: 20, low: 14, rain: 10 },
+    { condition: '晴', icon: 'sun', high: 22, low: 15, rain: 0 },
+    { condition: '晴转多云', icon: 'cloud-sun', high: 23, low: 16, rain: 10 },
+    { condition: '小雨', icon: 'rain', high: 19, low: 14, rain: 65 },
+    { condition: '阵雨', icon: 'rain', high: 18, low: 13, rain: 55 },
+    { condition: '多云', icon: 'cloud', high: 20, low: 14, rain: 15 },
+    { condition: '晴', icon: 'sun', high: 21, low: 14, rain: 0 },
+    { condition: '多云', icon: 'cloud-sun', high: 19, low: 13, rain: 10 },
+    { condition: '阴', icon: 'overcast', high: 17, low: 12, rain: 25 },
+    { condition: '小雨', icon: 'rain', high: 16, low: 11, rain: 60 },
+    { condition: '多云', icon: 'cloud-sun', high: 18, low: 12, rain: 10 }
+  ];
+
+  function renderWeatherForecast() {
+    if (!forecastGrid) return;
+
+    const now = new Date();
+    const dayLabels = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+    const days = weatherForecast.map((day, index) => {
+      const date = new Date(now);
+      date.setDate(now.getDate() + index);
+      const label = index === 0 ? '今天' : index === 1 ? '明天' : dayLabels[date.getDay()];
+      const dateLabel = `${pad(date.getMonth() + 1)}/${pad(date.getDate())}`;
+      const ariaLabel = `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日，${day.condition}，最高 ${day.high} 度，最低 ${day.low} 度，降雨概率 ${day.rain}%`;
+      return `
+        <div class="forecast-day is-${day.icon}${index === 0 ? ' is-today' : ''}" role="listitem" aria-label="${escapeHTML(ariaLabel)}">
+          <span class="forecast-day__day">${label}</span>
+          <span class="forecast-day__date">${dateLabel}</span>
+          ${icon(day.icon, 'forecast-day__icon')}
+          <span class="forecast-day__temps"><strong>${day.high}°</strong><span>${day.low}°</span></span>
+          <span class="forecast-day__condition">${escapeHTML(day.condition)}</span>
+        </div>`;
+    });
+
+    forecastGrid.innerHTML = days.join('');
+
+    const lastDate = new Date(now);
+    lastDate.setDate(now.getDate() + weatherForecast.length - 1);
+    if (forecastRange) {
+      forecastRange.textContent = `${pad(now.getMonth() + 1)}/${pad(now.getDate())} — ${pad(lastDate.getMonth() + 1)}/${pad(lastDate.getDate())}`;
+    }
+    if (weatherUpdated) {
+      weatherUpdated.textContent = `${pad(now.getMonth() + 1)}/${pad(now.getDate())} ${formatClock(now)} 更新`;
+    }
+
+    const low = Math.min(...weatherForecast.map((day) => day.low));
+    const high = Math.max(...weatherForecast.map((day) => day.high));
+    const rainyDays = weatherForecast.filter((day) => day.rain >= 40).length;
+    if (clothingTitle) {
+      clothingTitle.textContent = low <= 12 ? '薄外套 + 长袖，早晚加一件' : '长袖为主，随身带一件薄外套';
+    }
+    if (clothingNote) {
+      clothingNote.textContent = `未来 15 天最低 ${low}°、最高 ${high}°，早晚温差明显；有 ${rainyDays} 天可能出现降雨，出门可带折叠伞。`;
+    }
+  }
 
   function closeWeather() {
     if (!weatherPopover || weatherPopover.hidden) return;
@@ -1936,6 +2182,7 @@
     if (!weatherPopover) return;
     const willOpen = weatherPopover.hidden;
     closeSearch();
+    if (willOpen) renderWeatherForecast();
     weatherPopover.hidden = !willOpen;
     weatherButton?.setAttribute('aria-expanded', String(willOpen));
   }
@@ -2201,6 +2448,8 @@
   }
 
   function initMisc() {
+    renderWeatherForecast();
+
     weatherButton?.addEventListener('click', (event) => {
       event.stopPropagation();
       toggleWeather();
@@ -2263,6 +2512,7 @@
     closeTab,
     activateTab,
     openCalendar,
-    search: jumpToSearch
+    search: jumpToSearch,
+    toast: showToast
   };
 })();

@@ -14,3 +14,9 @@ preview-*.png
 node_modules/
 .env
 .env.*
+
+# Local database
+data/
+*.db
+*.db-shm
+*.db-wal
