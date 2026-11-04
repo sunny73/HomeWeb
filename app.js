@@ -1105,14 +1105,47 @@
           </div>
         </header>
 
-        <div class="news-categories" role="group" aria-label="新闻分类">
-          ${newsDeskCategoryOrder.map((name) => `
+        <div class="news-categories-shell">
+          <div class="news-categories" role="group" aria-label="新闻分类">
+            ${newsDeskCategoryOrder.map((name) => `
+              <button
+                class="news-category${name === category.label ? ' is-active' : ''}"
+                type="button"
+                data-news-category="${escapeHTML(name)}"
+                aria-pressed="${name === category.label}"
+              >${escapeHTML(name)}</button>`).join('')}
+          </div>
+          <div class="news-more">
             <button
-              class="news-category${name === category.label ? ' is-active' : ''}"
+              class="news-category news-category--more"
               type="button"
-              data-news-category="${escapeHTML(name)}"
-              aria-pressed="${name === category.label}"
-            >${escapeHTML(name)}</button>`).join('')}
+              data-news-more-toggle
+              aria-expanded="false"
+              aria-controls="news-more-menu"
+            >
+              更多
+              ${icon('chevron', 'news-more__chevron')}
+            </button>
+            <div class="news-more-menu" id="news-more-menu" hidden>
+              <p class="news-more-menu__label">更多站点</p>
+              <a href="https://aihot.news/codex-reset" target="_blank" rel="noopener noreferrer">
+                <span class="news-more-menu__icon">${icon('refresh')}</span>
+                <span class="news-more-menu__copy">
+                  <strong>Codex 额度重置</strong>
+                  <small>AIHOT · 查看额度与重置时间</small>
+                </span>
+                ${icon('arrow-up-right', 'news-more-menu__arrow')}
+              </a>
+              <a href="https://tophub.today/c/news" target="_blank" rel="noopener noreferrer">
+                <span class="news-more-menu__icon">${icon('trending')}</span>
+                <span class="news-more-menu__copy">
+                  <strong>今日热榜</strong>
+                  <small>tophub.today · 全站新闻热榜</small>
+                </span>
+                ${icon('arrow-up-right', 'news-more-menu__arrow')}
+              </a>
+            </div>
+          </div>
         </div>
 
         <div class="news-subbar">
@@ -1493,6 +1526,13 @@
     }
   }
 
+  function closeNewsMoreMenu() {
+    const toggle = channelView?.querySelector('[data-news-more-toggle]');
+    const menu = channelView?.querySelector('#news-more-menu');
+    if (menu) menu.hidden = true;
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  }
+
   function activateTab(id, { focusTab = true, restoreScroll = true } = {}) {
     const next = state.tabs.find((tab) => tab.id === id);
     if (!next) return;
@@ -1646,6 +1686,22 @@
     });
 
     channelView?.addEventListener('click', (event) => {
+      const moreToggle = event.target.closest('[data-news-more-toggle]');
+      if (moreToggle) {
+        event.preventDefault();
+        event.stopPropagation();
+        const menu = channelView.querySelector('#news-more-menu');
+        const willOpen = moreToggle.getAttribute('aria-expanded') !== 'true';
+        moreToggle.setAttribute('aria-expanded', String(willOpen));
+        if (menu) menu.hidden = !willOpen;
+        return;
+      }
+
+      if (event.target.closest('.news-more-menu a')) {
+        closeNewsMoreMenu();
+        return;
+      }
+
       const categoryButton = event.target.closest('[data-news-category]');
       if (categoryButton) {
         state.newsDesk.category = categoryButton.dataset.newsCategory;
@@ -2459,6 +2515,14 @@
 
     document.addEventListener('click', () => {
       if (!weatherPopover?.hidden) closeWeather();
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.news-more')) closeNewsMoreMenu();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeNewsMoreMenu();
     });
 
     $('#lang-button')?.addEventListener('click', () => {
